@@ -21,10 +21,17 @@ function App() {
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/books" element={<BookList />} />
-        <Route path="/books/:id" element={<Book />} />
+        {/* <Route path="/books" element={<BookList />} /> */}
+        {/* <Route path="/books/:id" element={<Book />} /> */}
         {/* ^ Note React Router v6 can figure out the difference between route specificity */}
-        <Route path="/books/new" element={<NewBook />} />
+        {/* <Route path="/books/new" element={<NewBook />} /> */}
+        {/* Above we have three routes related to Books, so we can nest them instead*/}
+        <Route path="/books">
+          {/* we use index instead of path="" to say this route matches the exact route of it's parent */}
+          <Route index element={<BookList />} />
+          <Route path=":id" element={<Book />} />
+          <Route path="new" element={<NewBook />} />
+        </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
