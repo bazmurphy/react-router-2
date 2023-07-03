@@ -1,5 +1,5 @@
 import "./App.css";
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, Route, Routes, useRoutes } from "react-router-dom";
 import Home from "./pages/Home";
 // import BookList from "./pages/BookList";
 // import Book from "./pages/Book";
@@ -9,6 +9,31 @@ import NotFound from "./pages/NotFound";
 import BookRoutes from "./BookRoutes";
 
 function App() {
+  // Custom Hook using JavaScript
+
+  // this is an example of using the useRoutes hook, you give it an arrayof objects
+  // let element = useRoutes([
+  //   {
+  //     path: "/",
+  //     element: <NavLayout />,
+  //     children: [
+  //       {
+  //         index: true,
+  //         element: <Home />,
+  //       },
+  //       {
+  //         path: "about",
+  //         element: <About />,
+  //       },
+  //       {
+  //         index: "contact",
+  //         element: <Contact />,
+  //       },
+  //     ],
+  //   },
+  // ]);
+  // and then below you just render {element}
+
   return (
     <>
       {/* whenever we visit books it will also render this element, as well as what is below */}
