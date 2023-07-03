@@ -6,6 +6,10 @@ export default function BookList() {
       <h1>BookList</h1>
       <ul>
         <li>
+          <Link to="/books/new">New Book</Link>
+        </li>
+        <br />
+        <li>
           <Link to="/books/1">Book 1</Link>
         </li>
         <li>
