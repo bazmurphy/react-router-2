@@ -10,6 +10,10 @@ import BookLayout from "./BookLayout";
 function App() {
   return (
     <>
+      {/* whenever we visit books it will also render this element, as well as what is below */}
+      <Routes>
+        <Route path="/books" element={<h1>Extra Content</h1>} />
+      </Routes>
       <nav>
         <ul>
           <li>
@@ -37,10 +41,10 @@ function App() {
         {/* If you want to wrap a bunch of components that aren't related by URL inside of the same layout */}
         {/* In that case you can leave the path= OFF and only pass an element= */}
         {/* it will pretend the Route has no path but it will wrap all the children Routes inside that element*/}
-        {/* <Route element={<AnotherLayout />}>
-          <Route path="/something" element={<Something />} />
-          <Route path="/else" element={<Else />} />
-        </Route> */}
+        {/* <Route element={<AnotherLayout />}> */}
+        {/* <Route path="/something" element={<Something />} /> */}
+        {/* <Route path="/else" element={<Else />} /> */}
+        {/* </Route> */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
