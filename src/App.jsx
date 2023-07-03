@@ -1,19 +1,20 @@
 import "./App.css";
 import { Link, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import BookList from "./pages/BookList";
-import Book from "./pages/Book";
-import NewBook from "./pages/NewBook";
+// import BookList from "./pages/BookList";
+// import Book from "./pages/Book";
+// import NewBook from "./pages/NewBook";
 import NotFound from "./pages/NotFound";
-import BookLayout from "./BookLayout";
+// import BookLayout from "./BookLayout";
+import BookRoutes from "./BookRoutes";
 
 function App() {
   return (
     <>
       {/* whenever we visit books it will also render this element, as well as what is below */}
-      <Routes>
-        <Route path="/books" element={<h1>Extra Content</h1>} />
-      </Routes>
+      {/* <Routes> */}
+      {/* <Route path="/books" element={<h1>Extra Content</h1>} /> */}
+      {/* </Routes> */}
       <nav>
         <ul>
           <li>
@@ -31,13 +32,13 @@ function App() {
         {/* ^ Note React Router v6 can figure out the difference between route specificity */}
         {/* <Route path="/books/new" element={<NewBook />} /> */}
         {/* Above we have three routes related to Books, so we can nest them instead*/}
-        <Route path="/books" element={<BookLayout />}>
-          {/* we use index instead of path="" to say this route matches the exact route of it's parent */}
-          {/* and we can pass it an element in this case a layout */}
-          <Route index element={<BookList />} />
-          <Route path=":id" element={<Book />} />
-          <Route path="new" element={<NewBook />} />
-        </Route>
+        {/* <Route path="/books" element={<BookLayout />}> */}
+        {/* we use index instead of path="" to say this route matches the exact route of it's parent */}
+        {/* and we can pass it an element in this case a layout */}
+        {/* <Route index element={<BookList />} /> */}
+        {/* <Route path=":id" element={<Book />} /> */}
+        {/* <Route path="new" element={<NewBook />} /> */}
+        {/* </Route> */}
         {/* If you want to wrap a bunch of components that aren't related by URL inside of the same layout */}
         {/* In that case you can leave the path= OFF and only pass an element= */}
         {/* it will pretend the Route has no path but it will wrap all the children Routes inside that element*/}
@@ -45,6 +46,9 @@ function App() {
         {/* <Route path="/something" element={<Something />} /> */}
         {/* <Route path="/else" element={<Else />} /> */}
         {/* </Route> */}
+        {/* we can instead bring in the BookRoutes component */}
+        {/* if you have a Route that is rendering a bunch of other routes YOU HAVE TO MAKE SURE IT HAS A /* AT THE END OF THE PATH to match ANYTHING that comes after */}
+        <Route path="/books/*" element={<BookRoutes />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

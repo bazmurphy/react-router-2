@@ -10,9 +10,8 @@ export default function Book() {
 
   return (
     <div>
-      <h1>
-        Book {id} {obj.hello}
-      </h1>
+      <h1>Book {id}</h1>
+      <p>{obj.hello}</p>
     </div>
   );
 }
